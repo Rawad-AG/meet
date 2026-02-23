@@ -16,7 +16,7 @@ app.use("/api/v1", mainRouter);
 
 app.use((req, res) => {
   return responder()
-    .err(new AppError(`Route '${req.originalUrl}' does not exist`))
+    .err(new AppError(`Route '${req.originalUrl}' does not exist`, 404))
     .send(res);
 });
 

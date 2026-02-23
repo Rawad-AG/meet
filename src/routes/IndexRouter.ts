@@ -1,13 +1,9 @@
 import { Router } from "express";
-import { responder } from "./../utils/Responder.js";
+import AssetsRouter from "./AssetRouter.js";
+import HealthRouter from "./HeatlhRouter.js";
 
 const router = Router();
 
-router.get("/health", (_req, res) => {
-  return responder()
-    .mess("API is healthy")
-    .payload({ service: "meet-clone-api" })
-    .send(res);
-});
-
+router.use("/assets", AssetsRouter);
+router.use("/health", HealthRouter);
 export default router;
