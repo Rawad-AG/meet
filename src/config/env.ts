@@ -12,7 +12,10 @@ if (!["env", "dev", "uat", "test", "qa"].includes(profile))
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const publicPath = path.resolve(__dirname, process.env.public || "../public");
+const publicPath = path.resolve(
+  __dirname,
+  "../" + (process.env.public || "public"),
+);
 
 export const ENV = {
   PORT: process.env.PORT || 3000,
